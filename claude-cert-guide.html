@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Certified Associate – Guida alla certificazione</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --or50: #FEF0E7;
+  --or100: #FDDCBF;
+  --or200: #FAB88A;
+  --or300: #F5A96A;
+  --or400: #D97757;
+  --or500: #C4601E;
+  --or600: #9B4315;
+  --pu50: #EEEDFE;
+  --pu200: #AFA9EC;
+  --pu400: #7F77DD;
+  --pu600: #534AB7;
+  --pu800: #3C3489;
+  --pu900: #26215C;
+  --teal50: #E1F5EE;
+  --teal600: #0F6E56;
+  --g50: #F9F8F5;
+  --g100: #F1F0EB;
+  --g200: #E2E1DA;
+  --g400: #888780;
+  --g600: #5F5E5A;
+  --text: #1a1a18;
+  --textm: #444441;
+  --texts: #5F5E5A;
+  --border: #D3D1C7;
+  --r: 10px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter','Helvetica Neue',Arial,sans-serif; background:#fff; color:var(--text); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* ── NAV ── */
+nav { position:sticky; top:0; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); z-index:100; }
+.nav-inner { max-width:900px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:58px; }
+.nav-brand { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:var(--or500); text-decoration:none; }
+.nav-dot { width:8px; height:8px; border-radius:50%; background:var(--or400); }
+.nav-links { display:flex; list-style:none; }
+.nav-links a { display:block; padding:6px 11px; font-size:13px; color:var(--texts); text-decoration:none; border-radius:6px; transition:color .15s,background .15s; white-space:nowrap; }
+.nav-links a:hover { color:var(--text); background:var(--g100); }
+
+/* ── HERO ── */
+.hero { background:var(--pu900); color:#fff; padding:5.5rem 2rem 0; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217,119,87,.25) 0%, transparent 70%); pointer-events:none; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--or300); margin-bottom:1.5rem; text-transform:uppercase; }
+.hero-eyebrow-dot { width:5px; height:5px; border-radius:50%; background:var(--or400); }
+.hero h1 { font-size:clamp(2rem,5vw,3.2rem); font-weight:800; line-height:1.15; max-width:680px; margin:0 auto 1.25rem; letter-spacing:-.03em; }
+.hero h1 em { font-style:normal; color:var(--or300); }
+.hero p { font-size:17px; color:rgba(255,255,255,.65); max-width:520px; margin:0 auto 3rem; line-height:1.7; }
+.hero-stats { display:flex; justify-content:center; gap:0; flex-wrap:nowrap; border-top:1px solid rgba(255,255,255,.1); margin-top:0; }
+.hero-stat { flex:1; text-align:center; padding:2rem 1rem; border-right:1px solid rgba(255,255,255,.08); }
+.hero-stat:last-child { border-right:none; }
+.hero-stat-num { display:block; font-size:2.1rem; font-weight:800; line-height:1; color:#fff; }
+.hero-stat-num span { font-size:1.2rem; }
+.hero-stat-label { display:block; font-size:11.5px; color:rgba(255,255,255,.4); margin-top:5px; line-height:1.4; }
+
+/* ── LAYOUT ── */
+.wrap { max-width:900px; margin:0 auto; }
+section { padding:4.5rem 2rem; border-bottom:1px solid var(--g100); }
+section:last-of-type { border-bottom:none; }
+.s-label { font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--or500); text-transform:uppercase; margin-bottom:.5rem; display:flex; align-items:center; gap:6px; }
+.s-label::before { content:''; display:block; width:14px; height:2px; background:var(--or400); border-radius:2px; }
+h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:800; letter-spacing:-.025em; margin-bottom:.5rem; line-height:1.2; }
+.s-intro { font-size:16px; color:var(--texts); max-width:600px; margin-bottom:2.5rem; line-height:1.75; }
+
+/* ── OVERVIEW CARDS ── */
+.kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:2.5rem; }
+.kpi-card { background:var(--g50); border:1px solid var(--border); border-radius:var(--r); padding:1.25rem 1.5rem; }
+.kpi-card.accent { background:var(--or50); border-color:var(--or200); }
+.kpi-label { font-size:12px; color:var(--texts); margin-bottom:6px; }
+.kpi-val { font-size:1.5rem; font-weight:800; color:var(--text); letter-spacing:-.02em; }
+.kpi-card.accent .kpi-val { color:var(--or600); }
+
+/* ── DOMAINS ── */
+.domain-list { display:flex; flex-direction:column; gap:10px; margin-bottom:1.5rem; }
+.domain-row { display:flex; align-items:center; gap:12px; }
+.domain-name { font-size:13.5px; color:var(--textm); width:260px; flex-shrink:0; }
+.d-bar-wrap { flex:1; height:7px; background:var(--g100); border-radius:4px; overflow:hidden; }
+.d-bar { height:100%; border-radius:4px; width:0; transition:width .9s cubic-bezier(.16,1,.3,1); }
+.d-bar.top { background:linear-gradient(90deg, var(--or400), var(--or300)); }
+.d-bar.mid { background:var(--pu400); }
+.d-bar.low { background:var(--g400); }
+.domain-pct { font-size:13px; font-weight:700; color:var(--texts); min-width:32px; text-align:right; }
+.domain-note { font-size:13.5px; color:var(--or600); background:var(--or50); border-left:3px solid var(--or400); padding:.875rem 1.125rem; border-radius:0 var(--r) var(--r) 0; line-height:1.6; margin-top:.5rem; }
+
+/* ── RETAKE TABLE ── */
+.table-wrap { border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-top:2rem; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { text-align:left; font-size:11.5px; font-weight:600; color:var(--texts); padding:10px 14px; border-bottom:1px solid var(--border); background:var(--g50); }
+td { padding:12px 14px; border-bottom:1px solid var(--g100); color:var(--textm); }
+tr:last-child td { border-bottom:none; }
+td:first-child { font-weight:600; color:var(--text); }
+
+/* ── PROCTORING ── */
+.proctor-box { background:var(--g50); border:1px solid var(--border); border-radius:14px; padding:2rem; margin-bottom:1.5rem; }
+.proctor-header { display:flex; align-items:center; gap:14px; margin-bottom:1.5rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); }
+.proctor-badge { background:var(--or50); border:1px solid var(--or200); border-radius:10px; padding:.6rem .9rem; display:flex; align-items:center; gap:7px; }
+.proctor-badge svg { width:20px; height:20px; stroke:var(--or500); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.proctor-badge-label { font-size:13px; font-weight:700; color:var(--or600); }
+.proctor-title { font-size:17px; font-weight:700; color:var(--text); }
+.proctor-sub { font-size:13px; color:var(--texts); margin-top:2px; }
+.steps-list { list-style:none; }
+.step-item { display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--g100); }
+.step-item:last-child { border-bottom:none; }
+.step-num { width:28px; height:28px; background:linear-gradient(135deg, var(--or400), var(--or300)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:#fff; flex-shrink:0; margin-top:1px; }
+.step-title { font-size:14px; font-weight:600; color:var(--text); margin-bottom:3px; }
+.step-desc { font-size:13px; color:var(--texts); line-height:1.6; }
+
+.warn-box { background:var(--or50); border:1px solid var(--or200); border-radius:var(--r); padding:1rem 1.25rem; display:flex; gap:10px; align-items:flex-start; margin-top:1.5rem; }
+.warn-box svg { width:18px; height:18px; stroke:var(--or500); fill:none; stroke-width:1.6; flex-shrink:0; margin-top:2px; stroke-linecap:round; stroke-linejoin:round; }
+.warn-text { font-size:13px; color:var(--or600); line-height:1.6; }
+.warn-text strong { color:var(--or500); }
+
+/* ── PREP ── */
+.prep-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:2.5rem; }
+.prep-card { border:1px solid var(--border); border-radius:12px; padding:1.5rem; background:#fff; transition:border-color .15s, box-shadow .15s; }
+.prep-card:hover { border-color:var(--or300); box-shadow:0 4px 20px rgba(217,119,87,.08); }
+.prep-icon { width:38px; height:38px; background:var(--or50); border-radius:9px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+.prep-icon svg { width:18px; height:18px; stroke:var(--or500); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.prep-card h3 { font-size:15px; font-weight:700; margin-bottom:6px; color:var(--text); }
+.prep-card p { font-size:13px; color:var(--texts); line-height:1.65; }
+
+.resource-list { list-style:none; border:1px solid var(--border); border-radius:var(--r); overflow:hidden; }
+.resource-item { display:flex; gap:12px; padding:14px 16px; border-bottom:1px solid var(--g100); align-items:flex-start; background:#fff; transition:background .12s; }
+.resource-item:last-child { border-bottom:none; }
+.resource-item:hover { background:var(--g50); }
+.r-tag { font-size:10px; font-weight:700; letter-spacing:.05em; padding:3px 8px; border-radius:5px; white-space:nowrap; margin-top:2px; flex-shrink:0; }
+.tag-free { background:var(--teal50); color:var(--teal600); }
+.tag-paid { background:var(--g100); color:var(--g600); }
+.tag-official { background:var(--or50); color:var(--or600); }
+.r-name { font-size:14px; font-weight:500; }
+.r-name a { color:var(--or500); text-decoration:none; }
+.r-name a:hover { text-decoration:underline; }
+.r-desc { font-size:12px; color:var(--texts); line-height:1.5; margin-top:3px; }
+
+/* ── TIPS ── */
+.tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.tip { background:var(--g50); border-radius:var(--r); padding:1.125rem 1.25rem; border:1px solid transparent; }
+.tip h4 { font-size:14px; font-weight:700; color:var(--text); margin-bottom:5px; }
+.tip p { font-size:13px; color:var(--texts); line-height:1.6; }
+
+/* ── REGISTRATION ── */
+.reg-steps { display:flex; flex-direction:column; }
+.reg-step { display:flex; gap:1.25rem; padding-bottom:2rem; position:relative; }
+.reg-step:last-child { padding-bottom:0; }
+.reg-left { display:flex; flex-direction:column; align-items:center; }
+.reg-circle { width:38px; height:38px; background:linear-gradient(135deg, var(--or500), var(--or400)); border-radius:50%; color:#fff; font-size:15px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 12px rgba(217,119,87,.3); }
+.reg-line { flex:1; width:1px; background:var(--border); margin:6px 0; }
+.reg-step:last-child .reg-line { display:none; }
+.reg-content { padding-top:7px; flex:1; }
+.reg-title { font-size:15px; font-weight:700; margin-bottom:5px; }
+.reg-desc { font-size:14px; color:var(--texts); line-height:1.65; }
+
+/* ── FAQ ── */
+.faq-list { display:flex; flex-direction:column; gap:8px; }
+.faq-item { border:1px solid var(--border); border-radius:var(--r); overflow:hidden; transition:border-color .15s; }
+.faq-item.open { border-color:var(--or300); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:1.125rem 1.25rem; cursor:pointer; user-select:none; gap:1rem; }
+.faq-q:hover { background:var(--g50); }
+.faq-item.open .faq-q { background:var(--or50); }
+.faq-q-text { font-size:15px; font-weight:600; color:var(--text); }
+.faq-item.open .faq-q-text { color:var(--or600); }
+.faq-icon { width:22px; height:22px; border-radius:50%; background:var(--g100); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .15s, transform .25s; }
+.faq-item.open .faq-icon { background:var(--or400); transform:rotate(45deg); }
+.faq-icon svg { width:12px; height:12px; stroke:var(--texts); fill:none; stroke-width:2.5; stroke-linecap:round; }
+.faq-item.open .faq-icon svg { stroke:#fff; }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.4,0,.2,1); }
+.faq-item.open .faq-a { max-height:400px; }
+.faq-a-inner { padding:.25rem 1.25rem 1.25rem; font-size:14px; color:var(--texts); line-height:1.75; border-top:1px solid var(--or100); }
+.faq-item.open .faq-a-inner { border-top:1px solid var(--or100); }
+.faq-a-inner a { color:var(--or500); }
+
+/* ── CTA ── */
+.cta-section { background:var(--pu900); padding:5rem 2rem; text-align:center; position:relative; overflow:hidden; }
+.cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 80% at 50% 110%, rgba(217,119,87,.2) 0%, transparent 70%); pointer-events:none; }
+.cta-section h2 { color:#fff; font-size:2rem; font-weight:800; margin-bottom:.75rem; letter-spacing:-.025em; }
+.cta-section p { color:rgba(255,255,255,.55); font-size:15px; max-width:480px; margin:0 auto 2.5rem; line-height:1.7; }
+.cta-buttons { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.btn-primary { display:inline-flex; align-items:center; gap:7px; background:var(--or400); color:#fff; font-size:14px; font-weight:700; padding:.8rem 1.75rem; border-radius:var(--r); text-decoration:none; transition:background .15s, transform .1s; box-shadow:0 4px 16px rgba(217,119,87,.4); }
+.btn-primary:hover { background:var(--or500); transform:translateY(-1px); }
+.btn-ghost { display:inline-flex; align-items:center; gap:7px; border:1px solid rgba(255,255,255,.25); color:#fff; font-size:14px; font-weight:600; padding:.8rem 1.75rem; border-radius:var(--r); text-decoration:none; transition:border-color .15s; }
+.btn-ghost:hover { border-color:rgba(255,255,255,.5); }
+
+footer { text-align:center; padding:1.75rem 2rem; font-size:12px; color:var(--texts); border-top:1px solid var(--g100); }
+
+/* ── ANIMATED BARS ── */
+.domain-list.animated .d-bar { width:var(--w); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .hero { padding:4rem 1.25rem 0; }
+  .hero-stats { flex-wrap:wrap; }
+  .hero-stat { flex-basis:50%; border-right:none; border-top:1px solid rgba(255,255,255,.08); }
+  section { padding:3rem 1.25rem; }
+  nav { padding:0; }
+  .nav-inner { padding:0 1.25rem; }
+  .nav-links { display:none; }
+  .kpi-row { grid-template-columns:1fr 1fr; }
+  .domain-name { width:160px; font-size:12.5px; }
+  .prep-grid { grid-template-columns:1fr; }
+  .tips-grid { grid-template-columns:1fr; }
+  .cta-buttons { flex-direction:column; align-items:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">
+      <span class="nav-dot"></span>Claude Associate Cert
+    </a>
+    <ul class="nav-links">
+      <li><a href="#esame">L'esame</a></li>
+      <li><a href="#proctoring">Proctoring</a></li>
+      <li><a href="#preparazione">Preparazione</a></li>
+      <li><a href="#iscrizione">Iscriversi</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    Accenture Global Premier · Claude Partner Network
+    <span class="hero-eyebrow-dot"></span>
+  </div>
+  <h1>Certificati su Claude.<br><em>Gratuitamente.</em></h1>
+  <p>Grazie allo status Global Premier di Accenture, tutte le certificazioni Claude sono disponibili senza costi — un'occasione concreta per costruire una competenza riconosciuta.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">60</span>
+      <span class="hero-stat-label">domande<br>scenario-based</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">120<span>'</span></span>
+      <span class="hero-stat-label">durata<br>dell'esame</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">720</span>
+      <span class="hero-stat-label">punteggio minimo<br>su 1.000</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">12</span>
+      <span class="hero-stat-label">mesi di<br>validità</span>
+    </div>
+  </div>
+</div>
+
+<!-- ESAME -->
+<section id="esame">
+  <div class="wrap">
+    <p class="s-label">Struttura dell'esame</p>
+    <h2>Cosa viene valutato</h2>
+    <p class="s-intro">La CCAO-F misura la capacità di usare Claude in contesti professionali reali: prompting, valutazione degli output, scelta dei modelli, configurazione di Projects, uso responsabile dell'AI.</p>
+
+    <div class="kpi-row">
+      <div class="kpi-card accent">
+        <div class="kpi-label">Codice esame</div>
+        <div class="kpi-val">CCAO-F</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Erogato da</div>
+        <div class="kpi-val">Pearson VUE</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Validità certificazione</div>
+        <div class="kpi-val">12 mesi</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:1.1rem;color:var(--text)">I 7 domini dell'esame</h3>
+    <div class="domain-list" id="domainList">
+      <div class="domain-row">
+        <div class="domain-name">Valutazione degli output</div>
+        <div class="d-bar-wrap"><div class="d-bar top" style="--w:21%"></div></div>
+        <div class="domain-pct">21%</div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-name">Integrazione nei workflow</div>
+        <div class="d-bar-wrap"><div class="d-bar top" style="--w:16%"></div></div>
+        <div class="domain-pct">16%</div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-name">Governance e uso responsabile</div>
+        <div class="d-bar-wrap"><div class="d-bar mid" style="--w:15%"></div></div>
+        <div class="domain-pct">15%</div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-name">Prompting e task execution</div>
+        <div class="d-bar-wrap"><div class="d-bar mid" style="--w:14%"></div></div>
+        <div class="domain-pct">14%</div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-name">Configurazione e knowledge mgmt</div>
+        <div class="d-bar-wrap"><div class="d-bar low" style="--w:12%"></div></div>
+        <div class="domain-pct">12%</div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-name">Selezione di prodotto e modello</div>
+        <div class="d-bar-wrap"><div class="d-bar low" style="--w:12%"></div></div>
+        <div class="domain-pct">12%</div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-name">Troubleshooting e ottimizzazione</div>
+        <div class="d-bar-wrap"><div class="d-bar low" style="--w:10%"></div></div>
+        <div class="domain-pct">10%</div>
+      </div>
+    </div>
+    <p class="domain-note">Il dominio più pesante è la valutazione degli output (21%) — copre accuratezza, hallucination, bias e quando serve revisione umana. Spesso sottovalutato da chi si prepara solo sul prompting.</p>
+
+    <div class="table-wrap" style="margin-top:2.5rem">
+      <table>
+        <thead><tr><th>Tentativo</th><th>Attesa minima prima del ritentivo</th></tr></thead>
+        <tbody>
+          <tr><td>Dopo il 1°</td><td>14 giorni</td></tr>
+          <tr><td>Dopo il 2°</td><td>30 giorni</td></tr>
+          <tr><td>Dopo il 3°</td><td>90 giorni</td></tr>
+          <tr><td>Limite annuale</td><td>4 tentativi per 12 mesi</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PROCTORING -->
+<section id="proctoring" style="background:var(--g50)">
+  <div class="wrap">
+    <p class="s-label">Logistica dell'esame</p>
+    <h2>Esame online con proctoring onVUE</h2>
+    <p class="s-intro">L'esame si svolge da remoto tramite il software onVUE di Pearson VUE, che monitora l'ambiente tramite webcam e microfono per tutta la durata. Nessun test center richiesto — ma la preparazione dell'ambiente è fondamentale.</p>
+
+    <div class="proctor-box">
+      <div class="proctor-header">
+        <div class="proctor-badge">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="proctor-badge-label">onVUE · Pearson VUE</span>
+        </div>
+        <div>
+          <div class="proctor-title">Come funziona il proctoring remoto</div>
+          <div class="proctor-sub">Da casa o dall'ufficio — serve webcam, microfono e connessione stabile</div>
+        </div>
+      </div>
+      <ul class="steps-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Scarica e testa onVUE in anticipo</div>
+            <div class="step-desc">Installa il software onVUE sul tuo computer prima del giorno dell'esame. Pearson VUE mette a disposizione un system check — eseguilo almeno 2–3 giorni prima per verificare webcam, microfono e connessione.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Prepara l'ambiente fisico</div>
+            <div class="step-desc">Scrivania libera da materiali, stanza silenziosa e ben illuminata, nessun monitor aggiuntivo. Il proctor verificherà l'ambiente via webcam prima di avviare — potrebbe chiederti un giro a 360°.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Documento d'identità con foto</div>
+            <div class="step-desc">Carta d'identità o passaporto validi, con nome identico a quello indicato nella registrazione Pearson VUE. Nessuna discrepanza ammessa.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">Niente appunti o altri dispositivi</div>
+            <div class="step-desc">Il proctor monitora in tempo reale per tutta la durata. Non è consentito consultare appunti, browser o altri device. Distogliere lo sguardo dallo schermo o parlare ad alta voce genera avvisi.</div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">5</div>
+          <div>
+            <div class="step-title">Collegati 30 minuti prima</div>
+            <div class="step-desc">Il check-in (verifica identità + scansione ambiente) può richiedere fino a 30 minuti. Collegati con anticipo — il tempo di check-in non si sottrae ai 120 minuti dell'esame.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="warn-box">
+      <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div class="warn-text"><strong>Laptop aziendale Accenture:</strong> i software di sicurezza aziendali (EDR, VPN, DLP) possono interferire con onVUE. Esegui il system check in anticipo e, se necessario, usa un computer personale o contatta l'IT prima della data dell'esame.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PREPARAZIONE -->
+<section id="preparazione">
+  <div class="wrap">
+    <p class="s-label">Studio e preparazione</p>
+    <h2>Come prepararsi</h2>
+    <p class="s-intro">L'esame è scenario-based: non testa definizioni, ma la capacità di scegliere l'approccio giusto in situazioni reali. La preparazione più efficace combina il materiale ufficiale Anthropic con i practice exam.</p>
+
+    <div class="prep-grid">
+      <div class="prep-card">
+        <div class="prep-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>Exam Guide ufficiale — prima di tutto</h3>
+        <p>Il documento di Anthropic mappa tutti i domini, i loro pesi e gli obiettivi specifici. Leggilo prima di qualunque altra risorsa: calibra tutto il resto della preparazione.</p>
+      </div>
+      <div class="prep-card">
+        <div class="prep-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Prep Course Anthropic</h3>
+        <p>Percorso di preparazione ufficiale su Partner Academy. Copre feature e concetti nel modo in cui Anthropic si aspetta vengano compresi — seguilo prima dei materiali di terze parti.</p>
+      </div>
+      <div class="prep-card">
+        <div class="prep-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Practice exam — indispensabili</h3>
+        <p>Il formato scenario-based richiede abitudine. Fai almeno un set completo prima di studiare (per capire dove sei esposto) e uno alla fine per validare. CertSafari e ClaudeCertificationGuide sono gratuiti.</p>
+      </div>
+      <div class="prep-card">
+        <div class="prep-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Non trascurare la governance</h3>
+        <p>Vale il 15% dell'esame e chi usa Claude tutti i giorni tende a darlo per scontato. Studia i principi di Anthropic sull'AI responsabile: quando escalare, quando non usare l'AI, come gestire dati sensibili.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:1rem;color:var(--text)">Risorse disponibili</h3>
+    <ul class="resource-list">
+      <li class="resource-item">
+        <span class="r-tag tag-official">Ufficiale</span>
+        <div>
+          <div class="r-name"><a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542847%2FClaude+Certified+Associate+%E2%80%93+Foundations+Exam+Guide.pdf" target="_blank">Exam Guide CCAO-F (PDF) ↗</a></div>
+          <div class="r-desc">Documento Anthropic con domini, pesi e obiettivi. Partenza obbligatoria.</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="r-tag tag-official">Ufficiale</span>
+        <div>
+          <div class="r-name"><a href="https://anthropic-partners.skilljar.com/path/claude-certified-associate-foundations" target="_blank">Prep Course su Anthropic Partner Academy ↗</a></div>
+          <div class="r-desc">Percorso strutturato incluso con la registrazione all'esame.</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="r-tag tag-free">Gratuito</span>
+        <div>
+          <div class="r-name"><a href="https://claudecertificationguide.com/ccao-f" target="_blank">ClaudeCertificationGuide.com ↗</a></div>
+          <div class="r-desc">30 lezioni e 250+ domande di pratica. Senza registrazione, senza paywall.</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="r-tag tag-free">Gratuito</span>
+        <div>
+          <div class="r-name"><a href="https://www.certsafari.com/anthropic/claude-certified-associate-foundations" target="_blank">CertSafari — 757 Practice Questions ↗</a></div>
+          <div class="r-desc">Domande con spiegazioni dettagliate, basate sulla documentazione aggiornata a settembre 2026.</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="r-tag tag-free">Gratuito</span>
+        <div>
+          <div class="r-name"><a href="https://tutorialsdojo.com/ccao-f-claude-certified-associate-foundations-study-guide/" target="_blank">Tutorials Dojo — CCAO-F Study Guide ↗</a></div>
+          <div class="r-desc">Guida completa con domande campione e spiegazione di risposte corrette e sbagliate.</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="r-tag tag-paid">A pagamento</span>
+        <div>
+          <div class="r-name"><a href="https://www.udemy.com/course/claude-associate/" target="_blank">Udemy — 360 Practice Questions ↗</a></div>
+          <div class="r-desc">6 esami completi a tempo allineati al blueprint ufficiale luglio 2026.</div>
+        </div>
+      </li>
+    </ul>
+
+    <h3 style="font-size:15px;font-weight:700;margin:2.5rem 0 1rem;color:var(--text)">Consigli per colleghi Accenture</h3>
+    <div class="tips-grid">
+      <div class="tip">
+        <h4>Parti dall'Exam Guide</h4>
+        <p>Definisce esattamente cosa viene chiesto per dominio. Leggilo per intero prima di qualsiasi altra risorsa.</p>
+      </div>
+      <div class="tip">
+        <h4>Imputa le ore su Workday</h4>
+        <p>8,5 ore vanno imputate al Central Training WBSE. Segui le istruzioni riportate direttamente in Workday.</p>
+      </div>
+      <div class="tip">
+        <h4>Testa onVUE prima</h4>
+        <p>Esegui il system check di Pearson VUE 2–3 giorni prima. Con laptop aziendale, verifica subito la compatibilità.</p>
+      </div>
+      <div class="tip">
+        <h4>Rinnova prima della scadenza</h4>
+        <p>La certificazione dura 12 mesi. Rinnovata prima della scadenza, non costa nulla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISCRIZIONE -->
+<section id="iscrizione" style="background:var(--g50)">
+  <div class="wrap">
+    <p class="s-label">Come procedere</p>
+    <h2>Tre passi per iscriversi</h2>
+    <p class="s-intro">Il processo coinvolge tre piattaforme in sequenza. La gratuità viene applicata su Anthropic Partner Academy — non su Pearson VUE direttamente.</p>
+
+    <div class="reg-steps">
+      <div class="reg-step">
+        <div class="reg-left">
+          <div class="reg-circle">1</div>
+          <div class="reg-line"></div>
+        </div>
+        <div class="reg-content">
+          <div class="reg-title">Workday Learning</div>
+          <div class="reg-desc">Cerca "Claude Certified Associate – Foundations" nel catalogo Workday Learning e avvia la registrazione. Le 8,5 ore di formazione si imputano al Central Training WBSE.</div>
+        </div>
+      </div>
+      <div class="reg-step">
+        <div class="reg-left">
+          <div class="reg-circle">2</div>
+          <div class="reg-line"></div>
+        </div>
+        <div class="reg-content">
+          <div class="reg-title">Anthropic Partner Academy</div>
+          <div class="reg-desc">Completa la registrazione sulla Partner Academy di Anthropic. Il costo dell'esame è azzerato grazie allo status Global Premier di Accenture — assicurati di accedere tramite il link Workday, non direttamente.</div>
+        </div>
+      </div>
+      <div class="reg-step">
+        <div class="reg-left">
+          <div class="reg-circle">3</div>
+          <div class="reg-line"></div>
+        </div>
+        <div class="reg-content">
+          <div class="reg-title">Pearson VUE — scegli data e modalità</div>
+          <div class="reg-desc">Verrai reindirizzato a Pearson VUE per schedulare l'esame. Scegli tra online con proctoring onVUE o un test center fisico. Puoi fissare la data in qualsiasi momento — anche molto dopo la registrazione.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="s-label">Domande frequenti</p>
+    <h2>FAQ</h2>
+    <p class="s-intro">Le domande che ricorrono più spesso tra chi valuta di iscriversi.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Quanto costa l'esame?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Nulla. Grazie allo status Global Premier di Accenture nel Claude Partner Network, tutte e quattro le certificazioni sono disponibili a costo zero. Il beneficio si applica in fase di registrazione su Anthropic Partner Academy — assicurati di accedervi tramite il flusso Workday.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Devo studiare in un certo periodo o entro una scadenza?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">No. La preparazione è completamente autogestita: studi quando e come vuoi, senza finestre temporali imposte. Puoi registrarti oggi e sostenere l'esame tra qualche mese. L'unico vincolo riguarda la registrazione gratuita — il beneficio va attivato mentre è disponibile — ma la data dell'esame la scegli tu su Pearson VUE senza fretta.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Posso ripianificare la data dell'esame se non riesco a presentarmi?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sì. Puoi ripianificare l'appuntamento su Pearson VUE prima della data prenotata senza costi aggiuntivi. È sufficiente accedere al proprio account Pearson VUE e modificare la prenotazione in anticipo rispetto all'orario schedulato. Se invece non ti presenti senza aver ripianificato, la sessione viene considerata fallita e si applicano le regole sui ritentivi.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Quante ore servono per prepararsi?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Anthropic indica 8,5 ore di formazione ufficiali (imputabili su Workday). In pratica, chi usa Claude regolarmente nel lavoro tende a prepararsi in 6–10 ore totali, includendo la lettura dell'Exam Guide e qualche set di practice exam. Chi parte da zero con le funzionalità avanzate (Projects, Artifacts, modelli) può averne bisogno di qualcuna in più.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Cosa succede se non supero l'esame al primo tentativo?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Puoi riprovare: dopo il primo tentativo fallito l'attesa minima è di 14 giorni, dopo il secondo di 30, dopo il terzo di 90. Sono consentiti fino a 4 tentativi per periodo di 12 mesi. Il costo del ritentivo dipende dalla finestra promozionale attiva al momento — verifica le condizioni aggiornate su Anthropic Partner Academy.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Il certificato è riconosciuto esternamente o vale solo internamente ad Accenture?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">È un certificato rilasciato da Anthropic e verificabile esternamente, erogato tramite Pearson VUE — lo stesso ente che gestisce certificazioni AWS, Microsoft, Google Cloud. Si può condividere su LinkedIn come qualsiasi altra certificazione tecnica e ha valore di mercato indipendente da Accenture.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Devo imputare le ore di studio su Workday? Come?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sì. Le 8,5 ore di formazione della CCAO-F si imputano al WBSE Central Training in Workday. Le istruzioni operative su come inserirle correttamente sono riportate direttamente in Workday Learning all'interno del corso.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Posso fare l'esame in italiano?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">No, l'esame è disponibile solo in inglese. Le domande sono scenario-based con un inglese tecnico ma accessibile — non è necessario un livello avanzato, ma è utile avere familiarità con la terminologia Claude in inglese (Projects, Artifacts, Prompts, ecc.).</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Pronto a iniziare?</h2>
+  <p>Registrati su Workday Learning, completa su Anthropic Partner Academy e schedula l'esame quando sei pronto.</p>
+  <div class="cta-buttons">
+    <a class="btn-primary" href="https://anthropic-partners.skilljar.com/claude-certified-associate-foundations-certification" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      Vai alla certificazione
+    </a>
+    <a class="btn-ghost" href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542847%2FClaude+Certified+Associate+%E2%80%93+Foundations+Exam+Guide.pdf" target="_blank">
+      Scarica l'Exam Guide
+    </a>
+  </div>
+</div>
+
+<footer>
+  Guida interna · Claude Certified Associate – Foundations (CCAO-F) · Accenture Talent · Aggiornata settembre 2026
+</footer>
+
+<script>
+  // Animate domain bars
+  const dl = document.getElementById('domainList');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animated'); } });
+  }, { threshold: 0.2 }).observe(dl);
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Nav highlight on scroll
+  const secs = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    navAs.forEach(a => {
+      const active = a.getAttribute('href') === '#' + cur;
+      a.style.color = active ? 'var(--or500)' : '';
+      a.style.fontWeight = active ? '700' : '';
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
